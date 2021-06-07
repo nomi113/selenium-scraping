@@ -12,7 +12,13 @@ def set_driver(driver_path, headless_flg):
 
     # ヘッドレスモード（画面非表示モード）をの設定
     if headless_flg == True:
-        options.add_argument('--headless') #引数headless_flgがTrueならば←？、ヘッドレスモードになる。ヘッドレスモードのオプション引数は'--headless'
+        options.add_argument('--headless') 
+# 引数headless_flgがTrueならば←？、ヘッドレスモードになる。ヘッドレスモードのオプション引数は'--headless
+#'set_driver("chromedriver.exe", False) →　ヘッドレスではない普通のブラウザモードで起動
+# set_driver("chromedriver.exe", True) →　ヘッドレスモード起動
+# のように呼び出し側でヘッドレス有無を制御するために使用しています。
+# Trueだった場合、options.add_argument('--headless')　が実行されるので
+# ヘッドレスモードになります。
 
     # 起動オプションの設定
     options.add_argument(
@@ -66,6 +72,8 @@ def main():
         exp_name_list.append(name.text)
         print(name.text)
         
+    print(exp_name_list)
+
 
 
 # 直接起動された場合はmain()を起動(モジュールとして呼び出された場合は起動しないようにするため)
